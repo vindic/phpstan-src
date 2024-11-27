@@ -22,7 +22,7 @@ use function sprintf;
 /**
  * @api
  */
-class Printer extends Standard
+final class Printer extends Standard
 {
 
 	public function __construct()
