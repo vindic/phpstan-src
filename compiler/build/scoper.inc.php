@@ -227,6 +227,13 @@ return [
 			], '', $content);
 		},
 		function (string $filePath, string $prefix, string $content): string {
+			if (!str_starts_with($filePath, 'vendor/ondrejmirtes/better-reflection')) {
+				return $content;
+			}
+
+			return str_replace(sprintf('%s\\PropertyHookType', $prefix), 'PropertyHookType', $content);
+		},
+		function (string $filePath, string $prefix, string $content): string {
 			if (
 				$filePath !== 'vendor/nette/utils/src/Utils/Strings.php'
 				&& $filePath !== 'vendor/nette/utils/src/Utils/Arrays.php'
