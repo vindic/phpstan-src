@@ -6,6 +6,7 @@ use PhpParser\Node;
 use PHPStan\Analyser\Scope;
 use PHPStan\File\FileHelper;
 use PHPStan\Node\InClassNode;
+use PHPStan\Node\Printer\Printer;
 use PHPStan\Reflection\FunctionVariant;
 use PHPStan\Reflection\ExtendedFunctionVariant;
 use PHPStan\Reflection\Php\DummyParameter;
@@ -54,6 +55,7 @@ final class FinalClassRule implements Rule
 			ExtendedFunctionVariant::class,
 			DummyParameter::class,
 			PhpFunctionFromParserNodeReflection::class,
+			Printer::class,
 		], true)) {
 			return [];
 		}
