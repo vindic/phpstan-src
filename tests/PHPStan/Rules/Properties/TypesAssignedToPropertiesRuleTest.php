@@ -692,4 +692,16 @@ class TypesAssignedToPropertiesRuleTest extends RuleTestCase
 		]);
 	}
 
+	public function testBug12131(): void
+	{
+		$this->checkExplicitMixed = true;
+		$this->analyse([__DIR__ . '/data/bug-12131.php'], [
+			[
+				'Property Bug12131\Test::$array (non-empty-list<int>) does not accept non-empty-array<int<0, max>, int>.',
+				29,
+				'non-empty-array<int<0, max>, int> might not be a list.',
+			],
+		]);
+	}
+
 }
