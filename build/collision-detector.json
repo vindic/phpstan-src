@@ -12,5 +12,5 @@
 		"../tests/notAutoloaded",
 		"../tests/PHPStan/Rules/Functions/data/define-bug-3349.php",
 		"../tests/PHPStan/Levels/data/stubs/function.php"
-	]
+    ]
 }
