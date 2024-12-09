@@ -8,6 +8,7 @@ use function get_include_path;
 use function implode;
 use function realpath;
 use function set_include_path;
+use const DIRECTORY_SEPARATOR;
 use const PATH_SEPARATOR;
 
 /**
@@ -129,7 +130,7 @@ class RequireFileExistsRuleTest extends RuleTestCase
 				5,
 			],
 			[
-				'Path in require_once() "' . __DIR__ . '/data/../bug-12203-sure-does-not-exist.php" is not a file or it does not exist.',
+				'Path in require_once() "' . __DIR__ . DIRECTORY_SEPARATOR . 'data/../bug-12203-sure-does-not-exist.php" is not a file or it does not exist.',
 				6,
 			],
 		]);
