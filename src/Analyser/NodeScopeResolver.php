@@ -844,6 +844,9 @@ final class NodeScopeResolver
 		} elseif ($stmt instanceof Node\Stmt\Trait_) {
 			return new StatementResult($scope, false, false, [], [], []);
 		} elseif ($stmt instanceof Node\Stmt\ClassLike) {
+			if (!$context->isTopLevel()) {
+				return new StatementResult($scope, false, false, [], [], []);
+			}
 			$hasYield = false;
 			$throwPoints = [];
 			$impurePoints = [];
