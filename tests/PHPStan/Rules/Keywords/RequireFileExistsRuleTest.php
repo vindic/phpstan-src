@@ -121,4 +121,18 @@ class RequireFileExistsRuleTest extends RuleTestCase
 		$this->analyse([__DIR__ . '/data/bug-11738/bug-11738.php'], []);
 	}
 
+	public function testBug12203(): void
+	{
+		$this->analyse([__DIR__ . '/data/bug-12203.php'], [
+			[
+				'Path in require_once() "../bug-12203-sure-does-not-exist.php" is not a file or it does not exist.',
+				5,
+			],
+			[
+				'Path in require_once() "' . __DIR__ . '/data/../bug-12203-sure-does-not-exist.php" is not a file or it does not exist.',
+				6,
+			],
+		]);
+	}
+
 }
